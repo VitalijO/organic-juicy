@@ -1,0 +1,65 @@
+.menu-icon {
+    display: none;
+@include mobile{
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    grid-area: menu-icon;
+    justify-self: end;
+    align-self: center;
+
+&:before{
+        content: "";
+        position: absolute;
+        @include line-style;
+        top: 0;
+        @include animation((top, transform), (0.25s, 0.25s), (0.2s, 0.25s));
+    }
+&::after{
+        content: "";
+        position: absolute;
+        @include line-style;
+        bottom: 0;
+        @include animation((bottom, transform), (0.25s, 0.25s), (0.2s, 0.25s));
+    }
+}
+}
+ 
+.menu-icon__line {
+   @include line-style;
+   opacity: 1;
+   @include animation(opacity, 0.1s, 0.2s);
+}
+
+.menu-icon--active .menu-icon__line{
+    opacity: 0 ; 
+    @include animation(opacity, 0.1s, 0.2s);
+
+}
+
+.menu-icon--active{
+    &::before{
+        transform: translateY(-50%) rotate(-45deg);
+        top: 50%;
+        @include animation((top, transform), (0.1s, 0.1s), (0.2s, 0.25s));
+
+    }
+    &::after{
+        transform: translateY(50%) rotate(45deg);
+        bottom: 50%;
+        @include animation((bottom, transform), (0.1s, 0.1s), (0.2s, 0.25s));
+    }
+}
+
+
+@mixin line-style($width: 100%, $height: 3px, $bg-color: $black-grey) {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $bg-color;
+    left: 0;
+}
+

@@ -1,0 +1,196 @@
+
+
+.wrapper-down {
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto ;
+    grid-template-areas:   "sidebar" "footer";
+    display: grid;
+    align-items: end;
+    align-content: center;
+
+
+@include desktop{
+        
+grid-template:  "footer sidebar" 1fr /  4.5fr 1.5fr;   
+align-items: stretch;
+}
+   
+}
+
+.footer {
+padding-top: 80px ;
+background-color: $black-grey ;
+display: grid;
+/* grid-template-columns: 1fr 1fr 1.5fr 1fr;
+grid-template-rows: max-content 100px;
+grid-template-areas: ".  socials form logo"
+                    " . . . copyright"; */
+
+grid-template:  "   socials form logo" max-content
+                "  . . copyright"  100px /  2fr  1.5fr 1fr; 
+align-items: end;
+align-content: center;
+grid-area: footer;
+
+
+@include mobile{
+    grid-template: "socials" "form" "logo" "copyright"  1fr/  1fr;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+}
+
+
+.socials {
+    grid-area: socials;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+    margin-bottom: -5px;
+    @include mobile{
+        gap: 35px;
+    }
+}
+
+.form {
+    grid-area: form;
+    text-transform: uppercase;
+    font-size: 18px;
+   
+    letter-spacing: 2px;
+    display: grid;
+    gap: 10px;
+    justify-content: start;
+    justify-items: start;
+    align-items: end;
+    @include mobile {
+        justify-items: center;
+        width: 300px;
+        justify-content: center;
+    }
+
+}
+
+ 
+
+ .form__input {
+    grid-column: 1 / 2;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    outline: none;
+    padding-left: 10px;  
+    font-size: 18px;
+    opacity: 0.8;
+    &:focus{
+        opacity: 1;
+    }
+    @include mobile {
+        width: 250px;
+    }
+}
+.form__submit-btn {
+    grid-column: 2 / 3;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: $turquoise;
+    text-transform: uppercase;
+    color: $alice-blue;
+    transition: 0.2s opacity;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+    @include mobile {
+        grid-column: 1 / 2;
+      
+    }
+
+}
+
+.form__label {
+    grid-column: 1 / -1;  
+ 
+
+  }
+
+.footer__logo {
+    grid-area: logo;
+    justify-self: center;  
+    align-self: center;
+    align-self: end;
+    
+    
+}
+
+ .footer__logo-icon{
+    width: 80px;
+    height: 80px;
+    fill: grey;
+    transition: 0.2s fill;
+    &:hover{
+        fill: $turquoise;
+    }
+  
+}
+
+ 
+ 
+.socials__item  a{
+    display: block;
+    transition: 0.2s opacity;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+
+}
+
+.socials__item-icon {
+   width: 40px;
+   height: 40px;
+   fill: $alice-blue;
+}
+
+
+
+
+.sidebar {
+    background-color: $turquoise ;
+    grid-area: sidebar;
+}
+
+.copy-right {
+    grid-area: copyright;
+    color: grey;
+    align-self: end;
+    justify-self: center;
+}
+
+
+
+.btn--round {
+    
+    border-radius: 20px;
+}
+
+.sidebar p + .btn{
+    margin-top: 20px;
+}
+
+.sidebar__text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 5;
+    -webkit-line-clamp: 5;
+}

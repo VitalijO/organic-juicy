@@ -1,0 +1,388 @@
+.main {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "healthy""slider-arrows""freshy" "slider-dots""thirsty""orange";       
+
+@include tablet{
+    grid-template-rows:1fr auto;
+    grid-template-columns:   1fr 0.5fr 0.5fr 1fr;
+    grid-template-areas: 
+        " freshy freshy freshy healthy"
+        "slider-arrows  slider-arrows  slider-arrows  healthy"
+        "thirsty thirsty thirsty thirsty"
+        "slider-dots slider-dots orange orange";
+        }
+
+     
+@include desktop{
+
+    grid-template-rows: 3fr 1fr 3fr;
+    grid-template-columns: 2fr 1fr 1.5fr 1.5fr ;
+    grid-template-areas: 
+    "slider-arrows healthy thirsty thirsty"
+    "slider-arrows  healthy slider-dots orange"
+    "freshy healthy slider-dots orange";
+    }
+
+}
+
+
+// SLIDER ARROWS//
+.slider-arrows {
+    position: relative;
+    grid-area: slider-arrows;
+}
+
+
+.slider-arrows,
+.slider-dots__items-wrapper,
+.orange__item{    
+    
+height: 320px;
+
+@include desktop{
+    height: 450px;
+}
+
+
+}
+
+
+.slider-arrows__nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider-arrows__arrow {
+    color: $alice-blue;
+    background-color: transparent;
+    font-size: 30px;
+    border: 2px solid $alice-blue;
+    border-radius: 50%;   
+    width: 50px;
+    height: 50px;
+    transition: 0.2s opacity;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+}
+
+
+.btn {
+    color: $alice-blue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid $alice-blue;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: 0.2s opacity;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+}
+
+.slider-arrows__items-wrapper {
+    width: 100%;
+    height: 100%;
+    filter: brightness(80%);
+    display: flex;
+}
+
+
+/* 
+.slider-arrows__arrow--left {
+}
+
+.slider-arrows__btn {
+}
+.slider-arrows__arrow--right {
+} */
+ 
+// SLIDER DOTS//
+
+.slider__dots {
+    grid-area: slider-dots;
+    position: relative;
+}
+
+
+.slider-dots__items-wrapper {
+    width: 100%;
+   // height: 100%;
+    filter: brightness(80%);
+    display: flex;
+}
+
+
+.slider-dots__btn-wrapper {
+    top: 50%; 
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.slider-dots__nav-item {
+    width: 15px;
+    height: 15px;
+    border-color: $alice-blue;
+    border-radius: 50%;
+    background: $alice-blue;
+    transition: 0.2s opacity;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+}
+
+.slider-dots__nav {
+    position: absolute;
+    left:0;
+    bottom: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider-dots__nav-item--active {
+    background: transparent;
+    border: 2px solid $alice-blue;
+}
+
+
+
+.slider-arrows__item {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-dots__item{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 
+
+
+
+.btn {
+}
+.slider-dots__btn {
+}
+ */
+
+
+ //ARTICLES//
+ .freshy {
+    grid-area: freshy;
+    background-color: $green;
+}
+
+.common {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+@include mobile{
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    
+   
+   }
+}
+
+
+ 
+.common__text-wrapper{
+    @include mobile{
+        flex: 1 1 66.67%; 
+        display: block;
+        max-height:200px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 10px 0;
+         
+       }
+    max-width: 100%;
+    hyphens: auto;
+        text-align: right;
+        //max-width: 200px;
+          max-width: 100%;
+        hyphens: auto;
+    }
+ 
+    .thirsty {
+        @include tablet{
+            display: flex;
+            justify-content: center;  
+            align-items: center;     
+            height: 200px;          
+            
+        }
+    
+    }
+
+
+.thirsty  .common__text-wrapper{
+    @include tablet{
+        flex: 0 0 30%; 
+        display: block;
+    }
+
+}
+
+
+.thirsty  .title{
+    @include tablet{
+        flex: 1 1 70%; 
+        text-align: center;
+    }
+    }
+
+
+
+
+
+.title {
+
+    @include mobile{
+        flex: 0 0 33.33%; 
+        text-align: center;
+    }
+    //conect font Fira sans condensed 
+    font-size: calc(0.5rem + 0.5vw);
+    //width: 140px;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
+
+}
+
+.title__span{
+        display: block;
+        //font-size: 60px;
+        font-size: calc(1rem + 2vw);
+        font-weight: 400;
+        letter-spacing: 2px;
+
+    &::first-line{
+        font-weight: 900;
+    }
+}
+
+
+
+.thirsty {
+    grid-area: thirsty;
+    background-color: $yellow;
+}
+
+.healthy {
+    grid-area: healthy;
+    background-color: $red;
+}
+
+
+ .common--row-rewerse {
+  
+        flex-direction: row-reverse;
+    
+    
+} 
+
+
+.common--col-rewerse{
+@media screen and (min-width: 760px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+     }
+    @include desktop{
+        justify-content: end;
+    }
+}
+
+.title{
+        max-width: 300px;
+    }
+
+
+
+
+.orange {
+    grid-area: orange;
+    position: relative;
+}
+
+.orange img{
+    width: 100%;
+   
+    filter: brightness(80%);
+}
+
+.orange__btn-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+}
+
+.orange__arrow {
+  position: absolute;
+   bottom: 10%;
+   right: 10%;
+     fill:$alice-blue;
+     transition: 0.2s opacity;
+     &:hover{
+         opacity: 0.8;
+     }
+     &:active{
+         opacity: 0.6;
+     }
+}
+
+.orange__arrow-icon{
+    width: 50px;
+    height: 50px;
+   
+}
+
+
+/* 
+
+
+.btn {
+}
+.orange__btn {
+}
+.orange__nav {
+}
+ */

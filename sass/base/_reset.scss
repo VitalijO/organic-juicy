@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    //outline: 2px solid green;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    object-fit: cover;
+}
+
+
+button, input[type="submit"]{
+display: inline-block;
+box-shadow: none;
+background-color: transparent;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+}
